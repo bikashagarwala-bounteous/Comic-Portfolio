@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bikash Agarwala — Cartoon Story</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body class="bg-yellow-50 text-slate-900">
+
+<nav class="sticky top-0 z-50 bg-white border-b-4 border-black">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">📘 Bikash's Comic</h1>
+    <div class="flex items-center gap-4 font-bold">
+      <div class="flex gap-6">
+        <a href="#story">Story</a>
+        <a href="#powers">Powers</a>
+        <a href="#quests">Quests</a>
+      </div>
+      <button id="theme-toggle" aria-label="Toggle dark mode" class="theme-toggle">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<main id="story" class="max-w-5xl mx-auto px-6 py-12 space-y-16">
+
+  <section class="comic-panel">
+    <div class="narration">
+      Once upon a deploy… in a world powered by coffee ☕ and clean code.
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center gap-8">
+      <img src="bikash.jpg" class="character floaty" alt="Bikash" />
+      <div class="speech">
+        <h2 class="text-3xl font-bold">Hi! I'm Bikash 👋</h2>
+        <p>I turn ideas into real, production-ready applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="comic-panel">
+    <div class="narration">
+      By day, a Software Engineer Intern. By night… a system optimizer.
+    </div>
+
+    <div class="speech">
+      <p class="font-bold text-lg">
+        🏷 SE Intern @ Bounteous x Accolite
+      </p>
+      <p>
+        I love building systems that survive real traffic and real users.
+      </p>
+    </div>
+  </section>
+
+  <section class="comic-panel">
+    <div class="narration">
+      The Origin Story: KomfyTrip 🛫
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="speech">
+        <p>⚙️ Built backend services handling <b>10k+ flight searches/day</b></p>
+        <p>⚡ Reduced API latency by <b>40%</b></p>
+        <p>✅ Booking success boosted to <b>92%</b></p>
+      </div>
+
+      <div class="speech">
+        <p>🧠 Stack Used:</p>
+        <ul class="list-disc pl-6">
+          <li>FastAPI</li>
+          <li>Redis</li>
+          <li>Celery</li>
+          <li>MongoDB</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="comic-panel">
+    <div class="narration">
+      Side Quest Unlocked: Open Source ⚔️
+    </div>
+
+    <div class="speech">
+      <h3 class="text-xl font-bold">Kestra Dropbox Plugin 📦</h3>
+      <p>
+        Created the official Dropbox plugin, enabling smooth file workflows
+        in distributed systems.
+      </p>
+    </div>
+  </section>
+
+  <section class="comic-panel">
+    <div class="narration">
+      Leadership Arc 🌟
+    </div>
+
+    <div class="speech">
+      <p>
+        As Web Tech Lead at <b>GDGC-AEC</b>, I mentored developers and helped
+        turn student projects into production-ready systems.
+      </p>
+    </div>
+  </section>
+
+  <section id="powers" class="comic-panel">
+    <div class="narration">
+      Power Stats Screen 📊
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <div class="speech">
+        <h4 class="font-bold">🧠 Core Skills</h4>
+        <p>Python (FastAPI)</p>
+        <p>Java (Spring Boot)</p>
+        <p>JavaScript (Next.js)</p>
+      </div>
+
+      <div class="speech">
+        <h4 class="font-bold">🧰 Tools</h4>
+        <p>Redis · Docker · Celery</p>
+        <p>PostgreSQL · MongoDB</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="quests" class="comic-panel">
+    <div class="narration">
+      Featured Quests 🚀
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="speech">
+        <h4 class="font-bold">🤖 Clooney</h4>
+        <p>LLM-powered UI replication with interactivity.</p>
+      </div>
+
+      <div class="speech">
+        <h4 class="font-bold">📦 Stash</h4>
+        <p>One place for notes, links, and images.</p>
+      </div>
+
+      <div class="speech">
+        <h4 class="font-bold">🍔 FoodEase</h4>
+        <p>Live orders & real-time restaurant management.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="comic-panel">
+    <div class="narration">
+      And the journey continues…
+    </div>
+
+    <div class="speech text-center">
+      <p class="font-bold text-xl">
+        “I'm always looking for the next complex system to optimize.”
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="bg-white border-t-4 border-black py-6 text-center font-bold">
+  © <span id="year"></span> Bikash Agarwala — Built with ❤️
+</footer>
+
+<script>
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  const themeToggle = document.getElementById("theme-toggle");
+  const root = document.documentElement;
+
+  function applyTheme(theme) {
+    root.classList.toggle('dark', theme === 'dark');
+    if (!themeToggle) return;
+    themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+  }
+
+  try {
+    const stored = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = stored || (prefersDark ? 'dark' : 'light');
+    applyTheme(initial);
+
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        const newTheme = root.classList.contains('dark') ? 'light' : 'dark';
+        applyTheme(newTheme);
+        localStorage.setItem('theme', newTheme);
+      });
+    }
+  } catch (e) {
+    console.warn('Theme init error', e);
+  }
+</script>
+
+</body>
+</html>
